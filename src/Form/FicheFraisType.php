@@ -13,10 +13,7 @@ class FicheFraisType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('mois')
-            ->add('nb_justificatifs')
-            ->add('montant_valide')
-            ->add('date_modif')
+            ->add('mois')               
             ->add('soumettre', SubmitType::class)
         ;
     }
