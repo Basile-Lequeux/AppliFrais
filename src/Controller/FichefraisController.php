@@ -8,16 +8,44 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+
+
+
+
 class FichefraisController extends AbstractController
 {
     /**
      * @Route("/home", name="fichefrais")
      */
 
+
+
+
+        
+     
+      
+
+
+
+
+
     public function new(Request $request)
     {
-        
+
+
+
+      
+
+
+
+
+
+
+
+
         $FicheFrais = new FicheFrais();
+
+        $user = $this->getUser();
         // $FicheFrais->setMois('Novembre');
         // $FicheFrais->setNbJustificatifs(1);
 
@@ -27,7 +55,10 @@ class FichefraisController extends AbstractController
 
         if ($fichefraisform->isSubmitted() && $fichefraisform->isValid()){
 
+            $FicheFrais->setfkuser($user);
             $FicheFrais = $fichefraisform->getData();
+            
+
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($FicheFrais);
@@ -37,16 +68,7 @@ class FichefraisController extends AbstractController
 
             return $this->redirectToRoute('home');
 
-
-
-
-
         }
-
-
-
-
-
 
 
         return $this->render('fichefrais/index.html.twig', [

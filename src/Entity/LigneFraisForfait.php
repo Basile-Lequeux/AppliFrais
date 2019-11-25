@@ -32,11 +32,6 @@ class LigneFraisForfait
      */
     private $fkfichefrais;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user")
-     */
-    private $fkuser;
-    
 
 
     public function getId(): ?int
@@ -80,15 +75,4 @@ class LigneFraisForfait
         return $this;
     }
 
-    public function getFkuser(): ?user
-    {
-        return $this->fkuser;
-    }
-
-    public function setFkuser(?user $fkuser): self
-    {
-        $this->fkuser = $fkuser;
-
-        return $this;
-    }
 }

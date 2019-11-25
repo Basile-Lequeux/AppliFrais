@@ -36,6 +36,11 @@ class Fichefrais
      */
     private $date_modif;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\user")
+     */
+    private $fkuser;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Fichefrais
     public function setDateModif(?\DateTimeInterface $date_modif): self
     {
         $this->date_modif = $date_modif;
+
+        return $this;
+    }
+
+    public function getFkuser(): ?user
+    {
+        return $this->fkuser;
+    }
+
+    public function setFkuser(?user $fkuser): self
+    {
+        $this->fkuser = $fkuser;
 
         return $this;
     }
